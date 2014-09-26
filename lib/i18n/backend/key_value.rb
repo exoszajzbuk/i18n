@@ -88,7 +88,7 @@ module I18n
       protected
 
         def lookup(locale, key, scope = [], options = {})
-          key   = key[1..-1] if s.first == '.'
+          key   = key[1..-1] if key.first == '.'
           key   = normalize_flat_keys(locale, key, scope, options[:separator])
           value = @store["#{locale}.#{key}"]
           value = ActiveSupport::JSON.decode(value) if value
